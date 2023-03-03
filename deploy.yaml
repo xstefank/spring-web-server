@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: my-java-springboot
+  name: spring-web-server-devfile
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: java-springboot-app
+      app: spring-web-server-app
   template:
     metadata:
       labels:
-        app: java-springboot-app
+        app: spring-web-server-app
     spec:
       containers:
-        - name: my-java-springboot
+        - name: spring-web-server-devfile
           image: java-springboot-image:latest
           ports:
             - name: http
@@ -27,7 +27,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: my-java-springboot-svc
+  name: spring-web-server-devfile-svc
 spec:
   ports:
     - name: http-8081
@@ -35,4 +35,4 @@ spec:
       protocol: TCP
       targetPort: 8081
   selector:
-    app: java-springboot-app
+    app: spring-web-server-app

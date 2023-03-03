@@ -18,4 +18,4 @@ FROM openjdk:17-jdk
 COPY --from=0 /build/target/export-run-artifact.jar  /app/target/export-run-artifact.jar
 
 EXPOSE 8080
-ENTRYPOINT [ "java", "-jar", "/app/target/export-run-artifact.jar" ]
+ENTRYPOINT [ "java", "-jar", "/app/target/export-run-artifact.jar", "--server.port=8081" ]
